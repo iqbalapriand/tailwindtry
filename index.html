@@ -26,6 +26,12 @@
             color: #F1F5F9;
             overflow-x: hidden;
         }
+
+        html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        }
+
         
         .gradient-text {
             background: linear-gradient(90deg, #29D0C4 0%, #0EA8E7 100%);
@@ -325,6 +331,11 @@
             font-size: 32px;
         }
         
+        @media (max-width: 768px) {
+            .profile-icons {
+                display: none;
+            }
+        }
         .icon-ps {
             color: #31A8FF;
             top: 40px;
@@ -470,6 +481,7 @@
 </button>
 
 <body class="overflow-x-hidden">
+
     <!-- Glow Effects Background -->
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
