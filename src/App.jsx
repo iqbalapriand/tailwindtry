@@ -34,7 +34,7 @@ export default function App() {
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
 
   // Words for typing animation in hero
-  const words = ["Designer & Web Developer", "UI/UX & Frontend Engineer", "Creative Thinker & Coder"];
+  const words = ["UI/UX Designer", "Graphic Designer", "Web Developer"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -201,16 +201,19 @@ export default function App() {
     { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
     { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
     { name: "React JS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
     { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
     { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
     { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
     { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-    { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+    { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" }
   ];
 
   const row2 = [
+    { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
     { name: "SQLite", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" },
     { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg" },
+    { name: "Supabase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
     { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
     { name: "Photoshop", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" },
     { name: "Illustrator", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-original.svg" },
@@ -437,13 +440,13 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="fade-left">
               <p className="text-sm mb-4 accent-text">Hi, I am</p>
-              <h1 className="text-6xl font-bold mb-4" style={{ color: "#F1F5F9" }}>Iqbal Apriand J</h1>
+              <h1 className="text-6xl font-bold mb-4" style={{ color: "#F1F5F9" }}>Iqbal Apriand Juartono</h1>
               <h2 className="text-3xl font-semibold mb-6 h-[40px] flex items-center">
                 <span className="gradient-text">{currentText}</span>
                 <span className="text-white animate-pulse ml-1">|</span>
               </h2>
               <p className="text-gray-400 leading-relaxed mb-8" style={{ fontSize: "15px", lineHeight: "1.8" }}>
-                I'm a <span className="text-white font-semibold">Designer</span> and <span className="text-white font-semibold">Web Developer</span> with experience in creating user-centered designs and modern web interfaces, specializing in UI/UX, visual consistency, and responsive web development to turn ideas into intuitive, functional digital experiences.
+                I'm an <span className="text-white font-semibold">Informatics student</span> at <span className="text-white font-semibold">Gunadarma University</span> with hands-on experience across <span className="text-white font-semibold">UI/UX design</span>, <span className="text-white font-semibold">graphic design</span>, and <span className="text-white font-semibold">web development</span>. I enjoy working at the intersection of design and code — crafting interfaces that look great and work well, from initial wireframes in Figma through to production-ready front-end implementation.
               </p>
               
               {/* Social Icons */}
@@ -475,8 +478,8 @@ export default function App() {
                   Projects <i className="fas fa-arrow-right"></i>
                 </a>
                 <a 
-                  href="resume/Resume_Iqbal.pdf"
-                  download="Resume_Iqbal.pdf"
+                  href="resume/CV_Iqbal_Apriand_Juartono.pdf"
+                  download="CV_Iqbal_Apriand_Juartono.pdf"
                   className="btn-secondary"
                 >
                   Resume <i className="fas fa-download"></i>
@@ -485,12 +488,39 @@ export default function App() {
             </div>
             
             {/* Profile Image */}
-            <div className="flex justify-center md:justify-end relative fade-right">
-              <div className="profile-image">
-                <img src="img/Profile.png" alt="Profile" className="w-full h-full object-cover" />
-                <i className="fab fa-adobe profile-icons icon-ps"></i>
-                <i className="fab fa-adobe profile-icons icon-ai"></i>
-                <i className="fab fa-figma profile-icons icon-figma"></i>
+            <div className="flex justify-center md:justify-end relative fade-right lg:pr-10">
+              <div className="profile-container">
+                {/* Background Glow */}
+                <div className="profile-glow-blob"></div>
+                
+                {/* Outline Frame Box */}
+                <div className="profile-frame-box"></div>
+                
+                {/* User Portrait Image */}
+                <div className="profile-img-wrap">
+                  <img src="img/Profile.png" alt="Iqbal Apriand Juartono" className="profile-img-element" />
+                </div>
+                
+                {/* Floating Tech Badges */}
+                <div className="floating-badge badge-ps">
+                  <span className="font-sans font-bold text-[16px]">Ps</span>
+                </div>
+                
+                <div className="floating-badge badge-pr">
+                  <span className="font-sans font-bold text-[16px]">Pr</span>
+                </div>
+                
+                <div className="floating-badge badge-ai">
+                  <span className="font-sans font-bold text-[16px]">Ai</span>
+                </div>
+                
+                <div className="floating-badge badge-code">
+                  <i className="fas fa-code text-[16px]"></i>
+                </div>
+                
+                <div className="floating-badge badge-figma">
+                  <i className="fab fa-figma text-[16px]"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -614,8 +644,8 @@ export default function App() {
       </section>
 
       {/* Tech Stack Section */}
-      <section id="skills" className="py-24 px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto mb-16">
+      <section id="skills" className="py-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-8 mb-16">
           <div className="text-center fade-up">
             <p className="section-subtitle">Technologies I Work With</p>
             <h2 className="section-title gradient-text">Tech Stack</h2>

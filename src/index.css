@@ -373,53 +373,177 @@ html, body {
     cursor: not-allowed;
 }
 
-.profile-image {
+.profile-container {
     position: relative;
-    width: 300px;
+    width: 480px;
+    height: 560px;
     margin: 0 auto;
-    transform: translateX(50px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transform: translateX(85px);
 }
 
-@media (max-width: 768px) {
-    .profile-image {
-        transform: translateX(0);
-    }
-}
-
-.profile-icons {
+.profile-glow-blob {
     position: absolute;
-    font-size: 32px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    top: 15%;
+    left: 10%;
+    z-index: 1;
+    pointer-events: none;
+    filter: blur(15px);
+}
+
+.profile-frame-box {
+    position: absolute;
+    width: 78%;
+    height: 84%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    bottom: 6%;
+    left: 11%;
+    z-index: 1;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.profile-container:hover .profile-frame-box {
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.005);
+}
+
+.profile-img-wrap {
+    position: absolute;
+    width: 100%;
+    height: 94%;
+    bottom: 6%;
+    left: 0;
+    z-index: 3;
+    overflow: visible;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.profile-img-element {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
     transition: transform 0.3s ease;
 }
 
-.profile-image:hover .profile-icons {
-    transform: scale(1.1);
+.profile-container:hover .profile-img-element {
+    transform: translateY(-4px) scale(1.005);
+}
+
+/* Grayscale Floating Tech Badges */
+.floating-badge {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    background-color: #0c0c0d;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-badge:hover {
+    transform: scale(1.15) translateY(-5px);
+    border-color: #ffffff;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.15);
+}
+
+.badge-ps {
+    top: 7%;
+    left: 8%;
+    animation: float-badge-1 5s ease-in-out infinite;
+}
+
+.badge-pr {
+    top: 15%;
+    right: 8%;
+    animation: float-badge-2 6s ease-in-out infinite;
+}
+
+.badge-ai {
+    top: 40%;
+    left: -2%;
+    animation: float-badge-3 7s ease-in-out infinite;
+}
+
+.badge-code {
+    top: 50%;
+    right: -2%;
+    animation: float-badge-1 5.5s ease-in-out infinite;
+}
+
+.badge-figma {
+    bottom: 16%;
+    left: 3%;
+    animation: float-badge-2 6.5s ease-in-out infinite;
+}
+
+/* Float Animations for Badges */
+@keyframes float-gundar {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(-2deg); }
+}
+
+@keyframes float-badge-1 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes float-badge-2 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-7px) rotate(-3deg); }
+}
+
+@keyframes float-badge-3 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-9px) rotate(4deg); }
+}
+
+/* Responsive fixes */
+@media (max-width: 1024px) {
+    .profile-container {
+        width: 390px;
+        height: 470px;
+        transform: translateX(40px);
+    }
 }
 
 @media (max-width: 768px) {
-    .profile-icons {
-        display: none;
+    .profile-container {
+        width: 330px;
+        height: 390px;
+        margin-top: 40px;
+        transform: translateX(0);
     }
-}
-.icon-ps {
-    color: #FFFFFF;
-    opacity: 0.4;
-    top: 40px;
-    right: -20px;
-}
-
-.icon-ai {
-    color: #FFFFFF;
-    opacity: 0.4;
-    bottom: 80px;
-    left: -20px;
-}
-
-.icon-figma {
-    color: #FFFFFF;
-    opacity: 0.4;
-    top: 120px;
-    right: -30px;
+    .floating-badge {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+    }
+    .badge-ai {
+        left: -6%;
+    }
+    .badge-code {
+        right: -6%;
+    }
 }
 
 /* Glow Effects */
@@ -560,6 +684,13 @@ section {
     width: 15%;
     z-index: 2;
     pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .marquee-container::before,
+    .marquee-container::after {
+        width: 10%;
+    }
 }
 
 .marquee-container::before {
